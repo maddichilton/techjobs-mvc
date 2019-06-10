@@ -11,7 +11,17 @@
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
     <!-- TODO #3 - Use the same list display from search.html -->
+    <div th:if="${not #lists.isEmpty(jobs)}">
+        <table th:each="job : ${jobs}" class="job-listing">
+            <tr th:each="field : ${job.entrySet()}">
 
+                <td th:text="${field.getKey()}"></td>
+                <td th:text="${field.getValue()}"></td>
+
+            </tr>
+        </table>
+
+    </div>
 </div>
 
 </body>
